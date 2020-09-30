@@ -16,14 +16,14 @@ public class GameAlgo
         while (isPlaying)
         {
             System.out.print("\n\n"
-                    + "Welcome to league of legends\n"
+                    + "Welcome to kepap legends\n"
                     + "=====================================================\n"
                     + "1 - Start Game\n"
                     + "2 - Exit\n"
                     + "=====================================================\n"
                     + "Input: ");
             
-            String input = scan.next();
+            String input = scan.next().trim();
             
             if (tryParse(input))
             {
@@ -37,6 +37,33 @@ public class GameAlgo
                             Thread.sleep(500);
                             System.out.print(".");
                         }
+                        
+                        System.out.print("\n\n"
+                                + "Choose your hero: \n"
+                                + "=====================================================\n"
+                                + "1 - Nayeon\n"
+                                + "2 - Chaeyoung\n"
+                                + "3 - Mina\n"
+                                + "4 - Back to Main Menu\n"
+                                + "=====================================================\n"
+                                + "Input: ");
+                        
+                        input = scan.next().trim();
+                        if(tryParse(input))
+                        {
+                            choiceNumber = Integer.parseInt(input.trim());
+                            switch(choiceNumber)
+                            {
+                                case 1:
+                                    if(finalChampion("Nayeon"))
+                                    {
+                                        
+                                    }
+                                    
+                                    break;
+                            }
+                        }
+                        
                         break;
                     case 2:
                         break OUTER;
@@ -52,7 +79,25 @@ public class GameAlgo
         }
     }
     
-    static boolean tryParse(String value)
+    private static Boolean finalChampion(String heroName)
+    {
+        System.out.print("\nYou choose " + heroName + ", is it your final choice?");
+        scan = new Scanner(System.in);
+        String isFinal = scan.next();
+        
+        if(isFinal.equalsIgnoreCase("yes"))
+        {
+            return true;
+        }
+        else if(isFinal.equalsIgnoreCase("no"))
+        {
+            return false;
+        }
+        
+        return false;
+    }
+    
+    private static boolean tryParse(String value)
     {
         try
         {
@@ -64,4 +109,6 @@ public class GameAlgo
             return false;
         }
     }
+    
+    
 }
