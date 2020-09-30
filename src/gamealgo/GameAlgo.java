@@ -248,7 +248,7 @@ public class GameAlgo
                                 default:
                                         System.out.print("\n\n"
                                                 + user.getHeroName() + "run!");
-                                        break 
+                                        break;
                                }
                          }
                                             
